@@ -1,0 +1,9 @@
+Csharp Cipher/bin
+Csharp Cipher/Csharp Cipher
+Csharp Cipher/obj
+Csharp Cipher/*.csproj
+Csharp Cipher/*.sln
+Csharp Cipher/.vs
+!*.md
+!*.cs
+
