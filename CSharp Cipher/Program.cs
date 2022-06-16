@@ -11,7 +11,8 @@ namespace CSharp_Cipher
             Say("Welcome! Please type in the console the text to encrypt: ");
             string input = Console.ReadLine();
             int enKey = int.Parse(Console.ReadLine());
-            Say(Encrypt(input.ToUpper(), enKey));
+           // Say(Encrypt(input.ToUpper(), enKey));
+            Say(Decrypt(input.ToUpper(), enKey));
 
 
         }
@@ -36,6 +37,40 @@ namespace CSharp_Cipher
             }
             
             
+            return output;
+        }
+
+        public string Decrypt(string messyText, int key)
+        {
+            string output = string.Empty;
+            for (int i = 0; i < messyText.Length; i++)
+            {
+                char letter = messyText[i];
+                if (!alphabet.Contains(letter))
+                {
+                    output += letter;
+                }
+                else
+                {
+                    int currentIndex = alphabet.IndexOf(letter);
+                    currentIndex -= key;
+                    if (currentIndex < 0)
+                    {
+                        currentIndex += 26;
+                        output += alphabet[currentIndex];
+
+
+                    }
+                    else 
+                    {
+                        currentIndex %= 26;
+                        output += alphabet[currentIndex];
+                    }
+
+                }
+            }
+
+
             return output;
         }
 
